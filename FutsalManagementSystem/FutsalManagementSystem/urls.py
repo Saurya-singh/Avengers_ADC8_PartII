@@ -28,4 +28,3 @@ urlpatterns += [
 urlpatterns += [
     path('login_signup/', include('login_signup.urls')),
 ]
-

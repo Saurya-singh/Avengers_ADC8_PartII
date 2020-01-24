@@ -1,9 +1,15 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render,redirect
+from django.http import HttpResponse,HttpResponseForbidden
 from django.template import Template,Context
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 # Create your views here.
+
+def get_isauthenticated_welcome(request):
+    if request.user.is_authenticated:
+        return render(request,"welcome.html")
+    else:
+        return redirect('login')
 
 def view_signup(request):
     if request.method =="GET":
@@ -25,3 +31,9 @@ def view_login_user(request):
             return render(request,"welcome.html")
         else:
             return HttpResponse("Authentication Failed")
+
+def view_logout(request):
+    if(not request.user.is_authenticated):
+        return HttpResponseForbidden("Please Login Again..")
+    logout(request)
+    return redirect('login')
