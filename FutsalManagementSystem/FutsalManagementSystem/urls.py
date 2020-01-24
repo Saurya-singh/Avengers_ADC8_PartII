@@ -24,3 +24,8 @@ urlpatterns = [
 urlpatterns += [
     path('events/',include('events.urls')),
 ]
+
+urlpatterns += [
+    path('login_signup/', include('login_signup.urls')),
+]
+
