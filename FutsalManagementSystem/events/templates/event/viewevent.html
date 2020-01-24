@@ -8,6 +8,7 @@
     <title>View Events</title>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/viewevent.css' %}">
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
@@ -32,17 +33,16 @@
                         <td>{{events.venue}}</td>
                         <td>{{events.event_date}}</td>
                         <td>{{events.manager}}</td>
-                        <td><a href="delete/{{events.id}}">Delete this event</a></td>
+                        <td><a href="delete/{{events.id}}" class="btn btn-dark">Delete this event</a></td>
                     </tr>
-
+                    
                 {% empty %}
                     There are no Events.
                 {% endfor %}
-            </tbody>
-                    
-                
-            
+            </tbody>    
         </table>    
-    </div>
+    </div><br>
+    <a href="../eventform" class="btn btn-primary" id="registere">Register Event</a>
+    <a href="../../login_signup/logout/" class="btn btn-secondary">Logout</a>
 </body>
 </html>

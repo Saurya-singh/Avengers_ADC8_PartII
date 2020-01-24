@@ -1,7 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Event
 from django.http import HttpResponse
+from django.contrib.auth import authenticate
 
 # Create your views here.
 def view_event_data(request):
@@ -34,4 +35,8 @@ def view_event_delete(request,ID):
     event_obj.delete()
     return render(request,'event/delete_data.html',con_var)
     
-    
+def get_isauthenticated_welcome(request):
+    if request.user.is_authenticated:
+        return render(request,"event/viewevent.html")
+    else:
+        return HttpResponse('Please login first')

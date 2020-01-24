@@ -7,9 +7,9 @@ from django.contrib.auth.models import User
 
 def get_isauthenticated_welcome(request):
     if request.user.is_authenticated:
-        return render(request,"welcome.html")
+        return render(request,"../../events/viewevent")
     else:
-        return redirect('login')
+        return redirect('../login_signup/login')
 
 def view_signup(request):
     if request.method =="GET":
@@ -28,12 +28,10 @@ def view_login_user(request):
         print(user)
         if user is not None:
             login(request,user)
-            return render(request,"welcome.html")
+            return redirect('../../events/viewevent')
         else:
             return HttpResponse("Authentication Failed")
 
 def view_logout(request):
-    if(not request.user.is_authenticated):
-        return HttpResponseForbidden("Please Login Again..")
     logout(request)
-    return redirect('login')
+    return redirect('../login')
