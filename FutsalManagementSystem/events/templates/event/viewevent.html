@@ -12,6 +12,7 @@
 	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
+    {% if user.is_authenticated %}
     <div class="container mt-5">
         <table class="table">
             <thead class="thead-dark">
@@ -44,5 +45,8 @@
     </div><br>
     <a href="../eventform" class="btn btn-primary" id="registere">Register Event</a>
     <a href="../../login_signup/logout/" class="btn btn-secondary">Logout</a>
+    {% else %}
+         You are not Logged in..Please Try Logging in again
+    {% endif %}
 </body>
 </html>

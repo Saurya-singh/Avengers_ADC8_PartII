@@ -5,12 +5,6 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 # Create your views here.
 
-def get_isauthenticated_welcome(request):
-    if request.user.is_authenticated:
-        return render(request,"../../events/viewevent")
-    else:
-        return redirect('../login_signup/login')
-
 def view_signup(request):
     if request.method =="GET":
         return render(request,'signup.html')

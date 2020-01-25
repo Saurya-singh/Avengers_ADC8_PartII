@@ -3,6 +3,7 @@ from django.shortcuts import render,redirect
 from .models import Event
 from django.http import HttpResponse
 from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 
 # Create your views here.
 def view_event_data(request):
